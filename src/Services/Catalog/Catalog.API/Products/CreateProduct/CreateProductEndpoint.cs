@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Products.CreateProduct
 {
-    public class CreateProductEndpoint
+    internal class CreateProductEndpoint
     {
         
     }
