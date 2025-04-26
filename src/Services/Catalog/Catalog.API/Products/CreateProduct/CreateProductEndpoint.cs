@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Products.CreateProduct
 {
-    internal class CreateProductEndpoint
+    public record CreateProductRequest(string Name, List<string> Category, string Description, string ImageFile, decimal Price);
+
+    public record CreateProductResponse(Guid Id);
+    public class CreateProductEndpoint
     {
         
     }
