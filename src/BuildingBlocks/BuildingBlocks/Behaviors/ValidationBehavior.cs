@@ -21,6 +21,10 @@ namespace BuildingBlocks.Behaviors
                 .SelectMany(r => r.Errors)
                 .ToList();
 
+            if(failures.Any()){
+                throw new ValidationException(failures);
+            }
+
             return await next();
         }
     }
