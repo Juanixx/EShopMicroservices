@@ -9,9 +9,9 @@ namespace Basket.API.Data
             return true;
         }
 
-        public Task<ShoppingCart> GetBasket(string userName, CancellationToken cancellationToken = default)
+        public async Task<ShoppingCart> GetBasket(string userName, CancellationToken cancellationToken = default)
         {
-            var basket = session.LoadAsync<ShoppingCart>(userName, cancellationToken);
+            var basket = await session.LoadAsync<ShoppingCart>(userName, cancellationToken);
 
             return basket is null ? throw new BasketNotFoundException(userName) : basket;
         }
