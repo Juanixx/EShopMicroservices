@@ -24,11 +24,19 @@ services:
     volumes:
       - postgres_basket:/var/lib/postgresql/data/
 
+  distributedcache:
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
+
   catalog.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
+      # - ASPNETCORE_Kestrel__Certificates__Default__Password=Thelove1 #For LINUX
+      # - ASPNETCORE_Kestrel__Certificates__Default__Path=/home/app/.aspnet/https/aspnetapp.pfx #For LINUX
       - ConnectionStrings__Database=Server=catalogdb;Port=5432;Database=CatalogDb;User Id=postgres;Password=postgres;Include Error Detail=true
     depends_on:
       - catalogdb 
@@ -38,3 +46,5 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      # - ${HOME}/.microsoft/usersecrets:/home/app/.microsoft/usersecrets:ro #For LINUX
+      # - ${HOME}/.aspnet/https:/home/app/.aspnet/https:ro #For LINUX
