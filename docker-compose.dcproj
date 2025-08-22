@@ -10,6 +10,7 @@
     <UserSecretsId>1bb8e208-a16d-4bd7-b76d-35dcafa9e669</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <None Include=".dockerignore" />
     <None Include="docker-compose.override.mac.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
