@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Ordering.Domain.Enums;
-using Ordering.Domain.Models;
-using Ordering.Domain.ValueObjects;
 
 namespace Ordering.Infrastructure.Data.Configurations
 {
@@ -13,7 +10,7 @@ namespace Ordering.Infrastructure.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(o => o.Id).HasConversion(
-                orderId =>  orderId.Value,
+                orderId => orderId.Value,
                 dbId => OrderId.Of(dbId));
 
             builder.HasOne<Customer>()
