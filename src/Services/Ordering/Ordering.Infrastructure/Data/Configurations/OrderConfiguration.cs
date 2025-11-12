@@ -18,7 +18,7 @@ namespace Ordering.Infrastructure.Data.Configurations
                 .HasForeignKey(o => o.CustomerId)
                 .IsRequired();
 
-            builder.HasMany(o => o._OrderItems)
+            builder.HasMany(o => o.OrderItems)
                 .WithOne()
                 .HasForeignKey(oi => oi.OrderId);
 

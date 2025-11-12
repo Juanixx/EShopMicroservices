@@ -5,7 +5,7 @@ namespace Ordering.Domain.Models
     public class Order : Aggregate<OrderId>
     {
         private readonly List<OrderItem> _orderItems = new();
-        public IReadOnlyList<OrderItem> _OrderItems => _orderItems.AsReadOnly();
+        public IReadOnlyList<OrderItem> OrderItems => _orderItems.AsReadOnly();
         public CustomerId CustomerId { get; private set; } = default!;
         public OrderName OrderName { get; private set; } = default!;
         public Address ShippingAddress { get; private set; } = default!;
@@ -14,7 +14,7 @@ namespace Ordering.Domain.Models
         public OrderStatus Status { get; private set; } = default!;
         public decimal TotalPrice
         {
-            get => _OrderItems.Sum(x => x.Price * x.Quantity);
+            get => OrderItems.Sum(x => x.Price * x.Quantity);
             private set { }
         }
 
