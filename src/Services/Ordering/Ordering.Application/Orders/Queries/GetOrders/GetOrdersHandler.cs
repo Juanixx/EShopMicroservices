@@ -27,5 +27,5 @@ namespace Ordering.Application.Orders.Queries.GetOrders
                     orders.ToOrderDTOList()));
         }
     }
-    }
+    
 }
