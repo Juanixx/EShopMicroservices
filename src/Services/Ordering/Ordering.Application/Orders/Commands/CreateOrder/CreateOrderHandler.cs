@@ -10,8 +10,7 @@
             dbContext.Orders.Add(order);
             await dbContext.SaveChangesAsync(cancellationToken);
 
-            //return new CreateOrderResult(order.Id.Value);
-            throw new NotImplementedException();
+            return new CreateOrderResult(order.Id.Value);
         }
 
         private Order CreateNewOrder(OrderDTO orderDto)
